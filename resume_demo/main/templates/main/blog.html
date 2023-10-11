@@ -1,0 +1,113 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+<!-- ================================
+Start SEO blocks
+================================= -->
+{% block title %}{% endblock %}
+{% block decription %}{% endblock %}
+{% block keywords %}{% endblock %}
+<!-- ================================
+END SEO blocks
+================================= -->
+
+<!-- ================================
+Start CSS blocks
+================================= -->
+{% block extend_header %}{% endblock %}
+<!-- ================================
+END CSS blocks
+================================= -->
+
+<!-- ================================
+Start script blocks
+================================= -->
+{% block extend_footer %}{% endblock %}
+<!-- ================================
+END script blocks
+================================= -->
+
+<!-- ================================
+Start Content
+================================= -->
+{% block content %}
+<section>
+  <div class="innerPageBannerCol">
+    <div class="container">
+      <div class="row g-4 g-md-3 align-items-center">
+        <div class="col-md-15">
+          <div class="bannerContent">
+            <h1 class="xlTitle pb-md-3 titulo" style="font-family: 'Caveat', sans-serif; font-size: 100px; text-align: center; line-height: 1.5; 
+            color: rgb(246, 9, 210); transition: color 0.30s, box-shadow 0.30s; box-shadow: 0 0 5px rgba(255, 255, 255, 0.5); animation: blurIn 3s linear infinite;">
+  Las Divinas Blog
+</h1>
+<button type="button" class="btn btn-primary circular-btn" id="crear-blog-button" style="font-size: 24px; position: fixed;">
+  +
+</button>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    // Obtén una referencia al botón por su ID
+    var crearBlogButton = document.getElementById("crear-blog-button");
+
+    // Agrega un evento de clic al botón
+    crearBlogButton.addEventListener("click", function() {
+      // Redirige al usuario a la página 'crear-blog.html'
+      window.location.href = "{% url 'main:crear-blog' %}";
+    });
+  });
+</script>
+
+<style>
+  /* Estilos para el botón circular */
+  .circular-btn {
+    border-radius: 60%;
+    width: 60px;
+    height: 60px;
+    position: fixed;
+    bottom: 40px;
+    right: 50px;
+    transition: transform 0.3s;
+  }
+
+  .circular-btn:hover {
+    background-color: #0f1d70;
+    transform: rotate(45deg);
+  }
+</style>
+{% for obj in object_list %}
+<div class="card">
+  <div class="inner-card">
+    <a href="{% url 'main:blog' slug=obj.slug %}" class="img-link">
+      <div class="img-wrapper">
+        <img src="{{ obj.image.url }}" alt="{{ obj.title }}">
+      </div>
+    </a>
+    <div class="content">
+      <p class="description">{{ obj.description }}</p>
+    </div>
+  </div>
+</div>
+{% endfor %}
+</div>
+</div>
+</div>
+<style>
+.description {
+  font-size: 35px;
+  color: rgb(223, 41, 153);
+  margin-top: 20px; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  font-family: 'Caveat', sans-serif;
+}
+</style>
+<div class="light-box">
+<div class="box-wrapper">
+<div class="box">
+<img src="" alt="" class="light-img">
+</div>
+</div>
+</div>
+{% endblock %}

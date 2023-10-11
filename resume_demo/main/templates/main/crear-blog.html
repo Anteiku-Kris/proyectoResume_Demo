@@ -1,0 +1,134 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+<!-- ================================
+Start SEO blocks
+================================= -->
+{% block title %}{% endblock %}
+{% block decription %}{% endblock %}
+{% block keywords %}{% endblock %}
+<!-- ================================
+END SEO blocks
+================================= -->
+
+<!-- ================================
+Start CSS blocks
+================================= -->
+{% block extend_header %}{% endblock %}
+<!-- ================================
+END CSS blocks
+================================= -->
+
+<!-- ================================
+Start script blocks
+================================= -->
+{% block extend_footer %}{% endblock %}
+<!-- ================================
+END script blocks
+================================= -->
+
+<!-- ================================
+Start Content
+================================= -->
+{% block content %}
+<section>
+  <div class="innerPageBannerCol">
+    <div class="container">
+      <div class="row g-3 g-md-3  align-items-center">
+        <div class="col-md-25">
+          <div class="bannerContent">
+            <div class="innerPageBannerCol">
+              <div class="container">
+                <div class="row g-3 g-md-3 align-items-center">
+                  <div class="col-md-25">
+                    <div class="bannerContent" style="margin-bottom: 0.5px;">
+                      <h1 class="xlTitle pb-md-0.1 titulo" style="font-family: 'Caveat', sans-serif; font-size: 85px; text-align: center; line-height: 0.1; color:
+                       rgb(246, 9, 210); transition: color 0.30s, box-shadow 0.30s; box-shadow: 0 0 5px rgba(255, 255, 255, 0.5); animation: blurIn 3s linear infinite; margin-left: 35px; margin-right: 35px;">New Divina Post</h1>
+                    </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="lightBg">
+    <div class="container">
+      <form id="BlogForm" method="POST" action="/crear-blog/" class="custom-form" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-group">
+          <label for="author" class="form-label">Autor</label>
+          <input type="text" class="form-control" id="author" name="author">
+        </div>
+        <div class="form-group">
+          <label for="name" class="form-label">Título</label>
+          <input type="text" class="form-control" id="name" name="name">
+        </div>
+        <div class="form-group">
+          <label for="description" class="form-label">Descripción</label>
+          <textarea class="form-control" id="description" name="description"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="body" class="form-label">Cuerpo</label>
+          <textarea class="form-control" id="body" name="body"></textarea>
+        </div>
+        
+        <div class="form-group">
+          <label for="image" class="form-label">Imagen</label>
+          <input type="file" class="form-control" id="image" name="image">
+        </div>
+        <div class="form-group">
+          <input class='btn btn-primary custom-button' type="submit" value="Postear">
+        </div>
+      </form>
+    </div>
+    </div>
+    <style>
+      .custom-form {
+    padding: 20px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    font-family: Arial, sans-serif;
+}
+
+.custom-form .form-label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.custom-form .form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.custom-form .custom-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.custom-form .custom-button:hover {
+    background-color: #0056b3;
+}
+
+    </style>
+</div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================================
+End Content
+================================= -->
+{%endblock%}
